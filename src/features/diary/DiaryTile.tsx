@@ -14,7 +14,7 @@ interface Props {
 const buttonStyle: React.CSSProperties = {
   fontSize: '0.7em',
   margin: '0 0.5em',
-};
+ };
 
 const DiaryTile: FC<Props> = (props) => {
   const [diary, setDiary] = useState(props.diary);
@@ -35,8 +35,8 @@ const DiaryTile: FC<Props> = (props) => {
         setIsEditing(false);
       });
   };
-
   return (
+
     <div className="diary-tile">
       <h2
         className="title"

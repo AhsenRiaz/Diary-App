@@ -79,7 +79,7 @@ const Diaries: FC = () => {
       titleText: 'Cancelled',
     });
   };
-
+  
   return (
     <div style={{ padding: '1em 0.4em' }}>
       <Switch>

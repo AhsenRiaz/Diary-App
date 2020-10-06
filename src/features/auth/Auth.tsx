@@ -30,8 +30,7 @@ const Auth: FC = () => {
       .post<User, AuthResponse>(path, data)
       .then((res) => {
         if (res) {
-            const { user, token } = res;
-            console.log(res)
+          const { user, token } = res;
           dispatch(saveToken(token));
           dispatch(setUser(user));
           dispatch(setAuthState(true));
