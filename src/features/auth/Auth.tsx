@@ -7,6 +7,8 @@ import { saveToken, setAuthState } from './authSlice';
 import { setUser } from './userSlice';
 import { AuthResponse } from '../../services/mirage/routes/user';
 import { useAppDispatch } from '../../store';
+// import { yupResolver } from '@hookform/resolvers/yup';
+
 
 const schema = Yup.object().shape({
   username: Yup.string()
@@ -17,9 +19,7 @@ const schema = Yup.object().shape({
 });
 
 const Auth: FC = () => {
-  const { handleSubmit, register, errors } = useForm<User>({
-    validationSchema: schema,
-  });
+  const { handleSubmit, register, errors } = useForm<User>();
   const [isLogin, setIsLogin] = useState(true);
   const [loading, setLoading] = useState(false);
   const dispatch = useAppDispatch();
@@ -30,7 +30,8 @@ const Auth: FC = () => {
       .post<User, AuthResponse>(path, data)
       .then((res) => {
         if (res) {
-          const { user, token } = res;
+            const { user, token } = res;
+            console.log(res)
           dispatch(saveToken(token));
           dispatch(setUser(user));
           dispatch(setAuthState(true));
