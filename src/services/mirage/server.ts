@@ -56,6 +56,9 @@ export const setupServer = (env?: string): Server => {
 
             this.put('/diaries/entry/:id', diary.updateEntry);
             this.put('/diaries/:id', diary.updateDiary);
+
+            // this.post('/auth/login', user.login);
+            // this.post('/auth/signup', user.signup);
         },
     });
 };

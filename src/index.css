@@ -1,19 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Sansita+Swashed:wght@500&display=swap');
+
 :root {
-  --primary-color: #778899;
+  --primary-color: #795548;
   --error-color: #f85032;
   --text-color: #0d0d0d;
   --transition: all ease-in-out 0.3s;
 }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto Slab', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 html, body, #root {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 *, *:before, *:after {
   box-sizing: border-box;
@@ -67,6 +70,28 @@ button.secondary {
   color: var(--primary-color);
   background-color: #fff;
   border-color: #fff;
+  
+}
+.secondary {
+  color: var(--primary-color);
+  background-color: #fff;
+  border-color: #fff;
+  appearance: none;
+  text-align: center;
+  border: 1px solid var(--primary-color);
+  color: #fff;
+  background-color: var(--primary-color);
+  text-transform: uppercase;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  padding: 1em;
+
+  width: 100%;
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+  text-decoration: none;
+  text-transform: uppercase;
 }
 button:hover, button:focus {
   box-shadow: 1px 6px 8px rgba(0, 0, 0, 0.1);
@@ -97,6 +122,7 @@ button:hover, button:focus {
 .subtitle {
   font-size: 0.9rem;
   opacity: 0.85;
+  padding: 4px;
 }
 .title, .subtitle {
   margin: 0;
@@ -119,6 +145,9 @@ button:hover, button:focus {
 .entries ul {
   list-style: none;
   padding: 0;
+}
+.entries header{
+  text-decoration: none;
 }
 .entries li {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -144,4 +173,37 @@ button:hover, button:focus {
   100% {
     opacity: 0.8;
   }
+}
+.auth::before{
+  content: "";
+  /* background: url("https://source.unsplash.com/collection/190728/1600x900") no-repeat center center/cover ; */
+  background: url("https://source.unsplash.com/1600x900/?diary,diary") no-repeat center center/cover ;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  opacity: 0.7;
+  overflow-x: hidden;
+  
+}
+.header-auth{
+  font-family: 'Sansita Swashed', cursive; 
+}
+.no-account{
+  font-family: 'Sansita Swashed', cursive; 
+
+}
+.two-cols::before{
+  padding: 0;
+  margin-top: 0;
+  margin: 0;
+  content: "";
+  /* background: url("https://source.unsplash.com/collection/190728/1600x900") no-repeat center center/cover ; */
+  background: url("https://source.unsplash.com/1600x900/?diary,diary") no-repeat center center/cover ;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  opacity: 0.6;
+  overflow-x: hidden;
 }

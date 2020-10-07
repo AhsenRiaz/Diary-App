@@ -35,7 +35,7 @@ const Diaries: FC = () => {
   }, [dispatch, user]);
 
   const createDiary = async () => {
-    const result = await Swal.mixin({
+    const result:any = await Swal.mixin({
       input: 'text',
       confirmButtonText: 'Next →',
       showCancelButton: true,
@@ -81,7 +81,7 @@ const Diaries: FC = () => {
   };
   
   return (
-    <div style={{ padding: '1em 0.4em' }}>
+    <div style={{ padding: '1em 0.4em' }} className="create-dairy">
       <Switch>
         <Route path="/diary/:id">
           <DiaryEntriesList />

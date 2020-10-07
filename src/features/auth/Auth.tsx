@@ -8,6 +8,7 @@ import { setUser } from './userSlice';
 import { AuthResponse } from '../../services/mirage/routes/user';
 import { useAppDispatch } from '../../store';
 // import { yupResolver } from '@hookform/resolvers/yup';
+import Paper from '@material-ui/core/Paper';
 
 
 const schema = Yup.object().shape({
@@ -46,7 +47,9 @@ const Auth: FC = () => {
 
   return (
     <div className="auth">
-      <div className="card">
+
+      <Paper className="card">
+        <h1 className="header-auth">Hv Diaries App</h1>
         <form onSubmit={handleSubmit(submitForm)}>
           <div className="inputWrapper">
             <input ref={register} name="username" placeholder="Username" />
@@ -60,10 +63,10 @@ const Auth: FC = () => {
               name="password"
               type="password"
               placeholder="Password"
-            />
+              />
             {errors && errors.password && (
               <p className="error">{errors.password.message}</p>
-            )}
+              )}
           </div>
           {!isLogin && (
             <div className="inputWrapper">
@@ -71,10 +74,10 @@ const Auth: FC = () => {
                 ref={register}
                 name="email"
                 placeholder="Email (optional)"
-              />
+                />
               {errors && errors.email && (
                 <p className="error">{errors.email.message}</p>
-              )}
+                )}
             </div>
           )}
           <div className="inputWrapper">
@@ -85,11 +88,12 @@ const Auth: FC = () => {
           <p
             onClick={() => setIsLogin(!isLogin)}
             style={{ cursor: 'pointer', opacity: 0.7 }}
-          >
+            className="no-account"
+            >
             {isLogin ? 'No account? Create one' : 'Already have an account?'}
           </p>
         </form>
-      </div>
+            </Paper>
     </div>
   );
 };

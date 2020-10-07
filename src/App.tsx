@@ -11,6 +11,7 @@ const App: FC = () => {
     (state: RootState) => state.auth.isAuthenticated
   );
   return (
+
     <Router>
       <Switch>
         <Route path="/">

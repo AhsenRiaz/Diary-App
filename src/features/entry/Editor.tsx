@@ -10,6 +10,7 @@ import { updateDiary } from '../diary/diariesSlice';
 import { updateEntry } from './entriesSlice';
 import { showAlert } from '../../util';
 import { useAppDispatch } from '../../store';
+import Paper from '@material-ui/core/Paper';
 
 const Editor: FC = () => {
   const { currentlyEditing: entry, canEdit, activeDiaryId } = useSelector(
@@ -54,6 +55,7 @@ const Editor: FC = () => {
 
   return (
     <div className="editor">
+
       <header
         style={{
           display: 'flex',
@@ -84,6 +86,7 @@ const Editor: FC = () => {
           <input
             value={editedEntry?.title ?? ''}
             disabled={!canEdit}
+            placeholder="Your Title Here"
             onChange={(e) => {
               if (editedEntry) {
                 updateEditedEntry({
@@ -97,16 +100,17 @@ const Editor: FC = () => {
                 });
               }
             }}
-          />
-        )}
+            />
+            )}
       </header>
       {entry && !canEdit ? (
         <Markdown>{entry.content}</Markdown>
-      ) : (
-        <>
+        ) : (
+          <>
+          <Paper>
           <textarea
             disabled={!canEdit}
-            placeholder="Supports markdown!"
+            placeholder="Enter your input Here.."
             value={editedEntry?.content ?? ''}
             onChange={(e) => {
               if (editedEntry) {
@@ -121,7 +125,8 @@ const Editor: FC = () => {
                 });
               }
             }}
-          />
+            />
+            </Paper>
           <button onClick={saveEntry} disabled={!canEdit}>
             Save
           </button>

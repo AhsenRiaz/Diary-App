@@ -33,7 +33,7 @@ const DiaryEntriesList: FC = () => {
     <div className="entries">
       <header>
         <Link to="/">
-          <h3>← Go Back</h3>
+          <h3 className="secondary">← Go Back</h3>
         </Link>
       </header>
       <ul>
