@@ -57,7 +57,7 @@ const Auth: FC = () => {
         <h1 className="header-auth"> Diaries App</h1>
         <form onSubmit={handleSubmit(submitForm)}>
           <div className="inputWrapper">
-            <input ref={register} name="username" placeholder="Username" />
+            <input ref={register} name="username" placeholder="Username" required  />
             {errors && errors.username && (
               <p className="error">{errors.username.message}</p>
             )}
@@ -68,6 +68,7 @@ const Auth: FC = () => {
               name="password"
               type="password"
               placeholder="Password"
+              required
             />
             {errors && errors.password && (
               <p className="error">{errors.password.message}</p>
@@ -79,6 +80,7 @@ const Auth: FC = () => {
                 ref={register}
                 name="email"
                 placeholder="Email (optional)"
+                required
               />
               {errors && errors.email && (
                 <p className="error">{errors.email.message}</p>
