@@ -62,7 +62,7 @@ const DiaryTile: FC<Props> = (props) => {
             }}
           />
         ) : (
-          <span>{diary.title}</span>
+          <h3>{diary.title}</h3>
         )}
       </h2>
       <p className="subtitle">{totalEntries ?? '0'} Saved Entries</p>

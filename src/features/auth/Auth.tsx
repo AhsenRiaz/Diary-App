@@ -9,6 +9,7 @@ import { AuthResponse } from '../../services/mirage/routes/user';
 import { useAppDispatch } from '../../store';
 // import { yupResolver } from '@hookform/resolvers/yup';
 import Paper from '@material-ui/core/Paper';
+import heroImage from "../../image/hero-image.webp"
 
 
 const schema = Yup.object().shape({
@@ -47,9 +48,13 @@ const Auth: FC = () => {
 
   return (
     <div className="auth">
+      <div className = "hero_image">
+        <img src={heroImage} width="400px" height="300px" alt="hero_image" />
+      </div>
+      <div className = "card_background">
 
       <Paper className="card">
-        <h1 className="header-auth">Hv Diaries App</h1>
+        <h1 className="header-auth"> Diaries App</h1>
         <form onSubmit={handleSubmit(submitForm)}>
           <div className="inputWrapper">
             <input ref={register} name="username" placeholder="Username" />
@@ -63,10 +68,10 @@ const Auth: FC = () => {
               name="password"
               type="password"
               placeholder="Password"
-              />
+            />
             {errors && errors.password && (
               <p className="error">{errors.password.message}</p>
-              )}
+            )}
           </div>
           {!isLogin && (
             <div className="inputWrapper">
@@ -74,10 +79,10 @@ const Auth: FC = () => {
                 ref={register}
                 name="email"
                 placeholder="Email (optional)"
-                />
+              />
               {errors && errors.email && (
                 <p className="error">{errors.email.message}</p>
-                )}
+              )}
             </div>
           )}
           <div className="inputWrapper">
@@ -89,11 +94,12 @@ const Auth: FC = () => {
             onClick={() => setIsLogin(!isLogin)}
             style={{ cursor: 'pointer', opacity: 0.7 }}
             className="no-account"
-            >
+          >
             {isLogin ? 'No account? Create one' : 'Already have an account?'}
           </p>
         </form>
-            </Paper>
+      </Paper>
+      </div>
     </div>
   );
 };
